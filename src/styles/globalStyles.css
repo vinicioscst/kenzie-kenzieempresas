@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 
 :root {
@@ -27,6 +27,8 @@
     --text-2-medium: 500 .875rem var(--font-family);
     --text-3-medium: 600 .875rem var(--font-family);
     --text-2-regular: 500 .75rem var(--font-family);
+
+    --button: 700 1.125rem var(--font-family);
 
     --body: 400 1.125rem var(--font-family);
 }
