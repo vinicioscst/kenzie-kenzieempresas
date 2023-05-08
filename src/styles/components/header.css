@@ -1,9 +1,10 @@
-@import url(./reset.css);
-@import url(./globalStyles.css);
+@import url('./reset.css');
+@import url('./globalStyles.css');
 
 .header {
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: var(--white-mode);
 }
 
 .header__container {
@@ -11,8 +12,13 @@
     align-items: center;
     justify-content: space-between;
     
-    max-width: 1000px;
+    max-width: 1160px;
     height: 80px;
 
     margin: 0 auto;
+}
+
+.menu {
+    display: flex;
+    gap: 11px;
 }

@@ -4,19 +4,117 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./src/styles/index.css"/>
+    
+    <!-- JS -->
+    <script type="module" src="./src/scripts/index.js" defer></script>
+    
     <title>Kenzie Empresas</title>
-
-    <link rel="stylesheet" href="./src/styles/index.css" />
   </head>
   <body>
     <header class="header">
       <div class="header__container">
-        <img class="app__logo" src="./src/images/vectors/logo.svg" alt="Logo do Kenzie Empresas">
+        <img class="app__logo" src="./src/images/vectors/logo.svg" alt="Logo da Kenzie Empresas">
         <nav class="menu">
             <button class="menu__button">Login</button>
             <button class="menu__button">Cadastro</button>
         </nav>
       </div>
     </header>
+    <main class="app">
+      <figure class="app__background">
+        <img src="./src/images/backgrounds/background.jpg" alt="Imagem institucional da Kenzie Empresas com um grupo de pessoas em reunião">
+      </figure>
+      <aside class="companies">
+        <div class="companies__departments">
+          <select name="" id="" class="departments__container">
+            <option class="departments" value="None" hidden>Selecionar Setor</option>
+            <option class="departments" value="All">Todos</option>
+            <option class="departments" value="Alimenticio">Alimenticio</option>
+            <option class="departments" value="Varejo">Varejo</option>
+            <option class="departments" value="Manufatura">Manufatura</option>
+            <option class="departments" value="Atacado">Atacado</option>
+            <option class="departments" value="Aeroespacial">Aeroespacial</option>
+            <option class="departments" value="TI">TI</option>
+            <option class="departments" value="Automotiva">Automotiva</option>
+            <option class="departments" value="Textil">Textil</option>
+          </select>
+          <figure class="select-arrow">
+            <img src="./src/images/vectors/select-arrow.svg" alt="Abrir lista">
+          </figure>
+        </div>
+        <div class="companies__list">
+          <h2 class="list__title">Lista de Empresas</h2>
+          <ul class="list__container">
+            <li class="company">
+              <h3 class="company__title">Gela Guela</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Skina Lanches</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Mercado Kenzie</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Gortifruti da Terra</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Tecidos Dona Florinda</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Malhas Alberto</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">DevModa</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Edna Moda</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">KenzieX</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Evolution Tech</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Boacharria</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Offcina</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Nerd lab</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Chipset manutenções</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Mercado Popular</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+            <li class="company">
+              <h3 class="company__title">Atacadão Kenzie</h3>
+              <button class="chip__button">Setor</button>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </main>
   </body>
 </html>

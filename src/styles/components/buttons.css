@@ -1,5 +1,5 @@
-@import url(./reset.css);
-@import url(./globalStyles.css);
+@import url('./reset.css');
+@import url('./globalStyles.css');
 
 
 .menu__button {
@@ -29,4 +29,15 @@
 .menu__button:hover,.menu__button:first-of-type:hover {
     background-color: var(--color-brand-2);
     color: var(--white-mode);
+}
+
+.chip__button {
+    border-radius: 15.9375rem;
+    border: 1px solid var(--color-brand-1);
+    background-color: var(--white-mode);
+
+    padding: .4063rem 1.625rem;
+
+    font: 400 1rem var(--font-family);
+    color: var(--color-brand-1);
 }
