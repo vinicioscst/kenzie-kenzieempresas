@@ -2,10 +2,7 @@
 @import url('./globalStyles.css');
 
 
-.menu__button {
-    width: 8.875rem;
-    padding: .875rem 1.75rem;
-
+.menu__button, .create--department__button {
     background-color: var(--color-brand-1);
     border: 1px solid transparent;
     
@@ -16,6 +13,15 @@
     cursor: pointer;
 
     transition: background-color 0.2s;
+}
+
+.create--department__button {
+    padding: .875rem 2.375rem;
+}
+
+.menu__button {
+    width: 8.875rem;
+    padding: .875rem 1.75rem;
 }
 
 .menu__button:first-of-type {
@@ -49,7 +55,7 @@
     transition: all 0.2s;
 }
 
-.menu__button:hover,.menu__button:last-of-type:hover, .form__button:hover, .form__button:last-of-type:hover {
+.menu__button:hover,.menu__button:last-of-type:hover, .form__button:hover, .form__button:last-of-type:hover, .create--department__button:hover {
     background-color: var(--color-brand-2);
     color: var(--white-mode);
 }

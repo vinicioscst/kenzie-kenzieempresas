@@ -1,20 +1,20 @@
-import { allDepartments } from "./requests.js";
-
-export async function renderDepartmentsList(arr) {
+export function renderDepartmentsList(arr) {
   const departmentsContainer = document.querySelector(
     ".departments__container"
   );
 
+  departmentsContainer.innerHTML = ''
+  
   departmentsContainer.insertAdjacentHTML(
     "beforeend",
-    `<option value="None" hidden>Selecionar Setor</option>
+    `<option value="" hidden>Selecionar Setor</option>
   <option value="All">Todos</option>`
   );
 
-  arr.forEach((department) => {
+  arr.forEach((category) => {
     departmentsContainer.insertAdjacentHTML(
       "beforeend",
-      `<option value="${department.name}">${department.name}</option>`
+      `<option value="${category.id}">${category.name}</option>`
     );
   });
 }
@@ -22,10 +22,14 @@ export async function renderDepartmentsList(arr) {
 export async function renderCompaniesList(arr) {
   const companiesContainer = document.querySelector(".list__container");
 
-  arr.forEach((department) => {
+  companiesContainer.innerHTML = ''
+
+  arr.forEach((company) => {
+    companiesContainer.insertAdjacentHTML(
+      "beforeend",
     `<li class="company">
-      <h3>Nome</h3>
-      <button class="chip__button">Teste</button>
-    </li>`
+      <h3 class="company__title">${company.name}</h3>
+      <span class="chip__button">Teste</span>
+    </li>`)
   });
 }

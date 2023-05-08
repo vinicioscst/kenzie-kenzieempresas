@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../images/vectors/favicon.svg" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/vectors/favicon.svg" type="image/x-icon" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/dashAdmin.css" />
@@ -13,36 +13,182 @@
     <script type="module" src="../scripts/dashAdmin.js" defer></script>
 
     <title>Dashboard | Kenzie Empresas</title>
-</head>
-<body>
+  </head>
+  <body>
     <header class="header">
-        <div class="header__container">
-          <img class="app__logo" src="../images/vectors/logo.svg" alt="Logo da Kenzie Empresas"/>
-          <nav class="menu">
-            <button class="menu__button button__logout">Logout</button>
-          </nav>
-        </div>
+      <div class="header__container">
+        <img class="app__logo" src="../images/vectors/logo.svg" alt="Logo da Kenzie Empresas" />
+        <nav class="menu">
+          <button class="menu__button button__logout">Logout</button>
+        </nav>
+      </div>
     </header>
     <main class="app">
-        <div class="companies__list">
-            <select name="companies" id="companies" class="companies__container">
-              <option value="None" hidden>Selecionar Setor</option>
-              <option value="All">Todos</option>
-              <option value="Alimenticio">Alimenticio</option>
-              <option value="Varejo">Varejo</option>
-              <option value="Manufatura">Manufatura</option>
-              <option value="Atacado">Atacado</option>
-              <option value="Aeroespacial">Aeroespacial</option>
-              <option value="TI">TI</option>
-              <option value="Automotiva">Automotiva</option>
-              <option value="Textil">Textil</option>
-            </select>
-            <figure class="select-arrow">
-              <img src="./src/images/vectors/select-arrow.svg" alt="Abrir lista">
-            </figure>
+      <div class="companies__list">
+        <select name="companies" id="companies" class="companies__container">
+          <option value="None" hidden>Selecionar Empresa</option>
+          <option value="All">Empresa A</option>
+          <option value="Alimenticio">Empresa B</option>
+          <option value="Varejo">Empresa C</option>
+          <option value="Manufatura">Empresa D</option>
+          <option value="Atacado">Empresa E</option>
+          <option value="Aeroespacial">Empresa F</option>
+          <option value="TI">Empresa G</option>
+          <option value="Automotiva">Empresa H</option>
+          <option value="Textil">Empresa I</option>
+        </select>
+        <figure class="select-arrow">
+          <img src="../images/vectors/select-arrow.svg" alt="Abrir lista" />
+        </figure>
+      </div>
+      <section class="departments__container">
+        <div class="departments__header">
+          <h2 class="departments--section__title">Departamentos</h2>
+          <button class="create--department__button">+ Criar</button>
+        </div>
+        <div class="departments__list">
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img class="view--card__img" src="../images/vectors/view.svg" alt="Visualizar" />
+              <img class="edit--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+              <img class="delete--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
           </div>
-        <section class="user__header"></section>
-        <section class="user__company"></section>
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/view.svg" alt="Visualizar" />
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/view.svg" alt="Visualizar" />
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/view.svg" alt="Visualizar" />
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/view.svg" alt="Visualizar" />
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="department__card">
+            <div class="department__info">
+              <h4 class="department__name">NomeDepartamento</h4>
+              <p class="department__description">DepartamentoDescrição</p>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/view.svg" alt="Visualizar" />
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <h2 class="no--departments__text">
+            Empresa NOME não possui departamentos
+          </h2>
+        </div>
+      </section>
+      <section class="registered--users__container">
+        <h2 class="users--section__title">Usuários cadastrados</h2>
+        <div class="registered--users__list">
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+          <div class="users__card">
+            <div class="users__info">
+              <h4 class="users__name">Username</h4>
+              <p class="company__name">NomeCompanhia</p>
+            </div>
+            <div class="card__options">
+              <img src="../images/vectors/edit.svg" alt="Editar" />
+              <img src="../images/vectors/delete.svg" alt="Deletar" />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-</body>
+  </body>
 </html>
