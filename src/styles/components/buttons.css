@@ -6,22 +6,22 @@
     width: 8.875rem;
     padding: .875rem 1.75rem;
 
-    background-color: transparent;
-    border: 1px solid var(--color-brand-1);
+    background-color: var(--color-brand-1);
+    border: 1px solid transparent;
     
     text-align: center;
     font: var(--button); 
-    color: var(--color-brand-1);
+    color: var(--white-mode);
 
     cursor: pointer;
 
     transition: background-color 0.2s;
 }
 
-.menu__button:last-of-type {
-    background-color: var(--color-brand-1);
-    border: 1px solid transparent;
-    color: var(--white-mode);
+.menu__button:first-of-type {
+    background-color: transparent;
+    border: 1px solid var(--color-brand-1);
+    color: var(--color-brand-1);
 
     transition: all 0.2s;
 }
