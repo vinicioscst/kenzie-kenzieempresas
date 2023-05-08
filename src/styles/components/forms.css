@@ -1,0 +1,20 @@
+@import url('./reset.css');
+@import url('./globalStyles.css');
+
+
+.login__form, .register__form {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.login__form input, .register__form input {
+    padding: 15px 17px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    font: 400 1.125rem var(--font-family)
+}
+
+.login__form input:focus, .register__form input:focus {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+}

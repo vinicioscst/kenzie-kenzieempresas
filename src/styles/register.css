@@ -2,3 +2,48 @@
 @import url('./globalStyles.css');
 @import url('./components/header.css');
 @import url('./components/buttons.css');
+@import url('./components/forms.css');
+
+
+body {
+    background: url(../images/backgrounds/background.jpg) no-repeat top;
+    background-size: cover;
+}
+
+#form__box {
+    display: flex;
+    justify-content: center;
+    margin-top: 9.0625rem;
+}
+
+.box__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    width: 31.25rem;
+
+    background-color: rgba(255, 255, 255, 0.95);
+
+    padding: 2.5rem;
+}
+
+.box__container > .box__header {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.box__container > .box__header > .box__title {
+    font: 700 2.5rem var(--font-family);
+}
+
+.form__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.form__buttons p {
+    text-align: center;
+}
