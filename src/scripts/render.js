@@ -1,4 +1,4 @@
-export function renderDepartmentsList(arr) {
+export function renderCategoriesList(arr) {
   const departmentsContainer = document.querySelector(
     ".departments__container"
   );
@@ -21,7 +21,6 @@ export function renderDepartmentsList(arr) {
 
 export async function renderCompaniesList(arr) {
   const companiesContainer = document.querySelector(".list__container");
-
   companiesContainer.innerHTML = ''
 
   arr.forEach((company) => {
@@ -29,7 +28,7 @@ export async function renderCompaniesList(arr) {
       "beforeend",
     `<li class="company">
       <h3 class="company__title">${company.name}</h3>
-      <span class="chip__button">Teste</span>
+      <span class="chip__button">Setor</span>
     </li>`)
   });
 }
