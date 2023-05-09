@@ -1,13 +1,17 @@
-const baseUrl = 'http://localhost:3333'
+import { toast } from "./toast.js";
+
+const baseUrl = "http://localhost:3333";
 const requestHeaders = {
-  'Content-Type': 'application/json'
-}
+  "Content-Type": "application/json",
+};
+const errorColor = "#ee6055";
+const approvedColor = "#60d394";
 
 export async function getAllCategories() {
   const categories = await fetch(`${baseUrl}/categories/readAll`, {
     method: "GET",
   }).then(async (res) => {
-    if(res.ok) {
+    if (res.ok) {
       const response = await res.json();
       return response;
     } else {
@@ -23,7 +27,7 @@ export async function getAllCompanies() {
   const companies = await fetch(`${baseUrl}/companies/readAll`, {
     method: "GET",
   }).then(async (res) => {
-    if(res.ok) {
+    if (res.ok) {
       const response = await res.json();
       return response;
     } else {
@@ -36,10 +40,13 @@ export async function getAllCompanies() {
 }
 
 export async function getCompaniesByName(department) {
-  const filteredCompanies = await fetch(`${baseUrl}/companies/readByCategory/${department}/`, {
-    method: "GET",
-  }).then(async (res) => {
-    if(res.ok) {
+  const filteredCompanies = await fetch(
+    `${baseUrl}/companies/readByCategory/${department}/`,
+    {
+      method: "GET",
+    }
+  ).then(async (res) => {
+    if (res.ok) {
       const response = await res.json();
       return response;
     } else {
@@ -51,21 +58,42 @@ export async function getCompaniesByName(department) {
   return filteredCompanies;
 }
 
-export async function loginRequest (loginData) {
+export async function loginRequest(loginData) {
   const loginPush = await fetch(`${baseUrl}/auth/login`, {
     method: "POST",
     headers: requestHeaders,
-    body: JSON.stringify(loginData)
-  })
-  .then(async (res) => {
-    if(res.ok) {
-      const response = await res.json()
-      console.log()
-      if(response.isAdm === true) {
+    body: JSON.stringify(loginData),
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+
+      if (response.isAdm === true) {
         location.href = "./dashAdmin.html";
       } else {
         location.href = "./dashUser.html";
       }
+    } else {
+      const response = await res.json();
+      toast(errorColor, response.message);
     }
-  })
+  });
+}
+
+export async function registerRequest(registerData) {
+  const registerPush = await fetch(`${baseUrl}/employees/create`, {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify(registerData),
+  }).then(async (res) => {
+    if (res.ok) {
+      const message = 'Conta criada com sucesso!'
+      toast(approvedColor , message);
+      setTimeout(() => {
+        location.href = "./login.html";
+      }, 4000)
+    } else {
+      const response = await res.json();
+      toast(errorColor, response.message);
+    }
+  });
 }

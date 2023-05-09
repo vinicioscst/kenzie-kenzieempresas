@@ -1,4 +1,5 @@
 import { loginRequest } from "./requests.js";
+import { toast } from "./toast.js";
 
 function navigationMenu() {
     const homeButton = document.querySelector(".button__home");
@@ -23,6 +24,7 @@ function login () {
   const emailInput = document.querySelector(".form__email--input");
   const passwordInput = document.querySelector(".form__password--input");
   const submitButton = document.querySelector(".login__button");
+  const errorColor = '#ee6055';
   let loginData = {}
   let count = 0
 
@@ -37,7 +39,7 @@ function login () {
 
     if(count !== 0) {
       count = 0
-      alert('Preencha os campos necessários!')
+      toast(errorColor , 'Preencha os campos necessários!')
     } else {
       const loginPush = loginRequest(loginData)
 
