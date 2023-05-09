@@ -1,5 +1,5 @@
-@import url('./reset.css');
-@import url('./globalStyles.css');
+@import url('../reset.css');
+@import url('../globalStyles.css');
 
 .header {
     width: 100%;
