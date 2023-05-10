@@ -20,7 +20,7 @@ function navigationMenu() {
     });
   }
 
-  function registerEmployee () {
+  async function registerEmployee () {
     const nameInput = document.querySelector(".form__name--input");
     const emailInput = document.querySelector(".form__email--input");
     const passwordInput = document.querySelector(".form__password--input");
@@ -29,7 +29,7 @@ function navigationMenu() {
     let registerData = {}
     let count = 0
   
-    submitButton.addEventListener('click', e => {
+    submitButton.addEventListener('click', async (e) => {
       e.preventDefault()
   
       if(emailInput.value.trim() === '' || passwordInput.value.trim() === '' || nameInput.value.trim() === '') {
@@ -41,7 +41,7 @@ function navigationMenu() {
   
       if(count !== 0) {
         count = 0
-        toast(errorColor , 'Preencha os campos necessários!')
+        toast(errorColor , `Preencha os campos necessários!`)
       } else {
         const registerPush = registerRequest(registerData)
   

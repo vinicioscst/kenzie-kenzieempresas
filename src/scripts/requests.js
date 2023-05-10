@@ -86,8 +86,8 @@ export async function registerRequest(registerData) {
     body: JSON.stringify(registerData),
   }).then(async (res) => {
     if (res.ok) {
-      const message = 'Conta criada com sucesso!'
-      toast(approvedColor , message);
+      const toastMsg = 'Conta criada com sucesso!'
+      toast(approvedColor , toastMsg);
       setTimeout(() => {
         location.href = "./login.html";
       }, 4000)
