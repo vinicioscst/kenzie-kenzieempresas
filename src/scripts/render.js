@@ -19,16 +19,21 @@ export function renderCategoriesList(arr) {
   });
 }
 
-export async function renderCompaniesList(arr) {
+export async function renderCompaniesList(arr, categories) {
   const companiesContainer = document.querySelector(".list__container");
   companiesContainer.innerHTML = ''
-
+  
   arr.forEach((company) => {
+    const companyCategory = categories.filter((category) => {
+      
+      return category.id === company.category_id
+    })
+    
     companiesContainer.insertAdjacentHTML(
       "beforeend",
     `<li class="company">
       <h3 class="company__title">${company.name}</h3>
-      <span class="chip__button">Setor</span>
+      <span class="chip__button">${companyCategory[0].name}</span>
     </li>`)
   });
 }

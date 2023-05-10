@@ -13,6 +13,7 @@ export async function getAllCategories() {
   }).then(async (res) => {
     if (res.ok) {
       const response = await res.json();
+      localStorage.setItem('allCategories', JSON.stringify(response))
       return response;
     } else {
       const response = await res.json();

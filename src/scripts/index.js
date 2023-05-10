@@ -19,7 +19,7 @@ async function renderCategoriesAndCompanies() {
   const requestCompanies = await getAllCompanies();
 
   renderCategoriesList(requestCategories);
-  renderCompaniesList(requestCompanies);
+  renderCompaniesList(requestCompanies, requestCategories);
 }
 
 async function renderCompanies() {
@@ -30,14 +30,15 @@ async function filterCompanies() {
 
   select.addEventListener("change", async (e) => {
     const categoryName = e.target.options[e.target.selectedIndex].text;
+    const requestCategories = await getAllCategories();
 
     if (categoryName === "Todos") {
       const request = await getAllCompanies();
-      renderCompaniesList(request);
+      renderCompaniesList(request, requestCategories);
     } else {
       
       const filteredCompanies = await getCompaniesByName(categoryName);
-      renderCompaniesList(filteredCompanies);
+      renderCompaniesList(filteredCompanies, requestCategories);
     }
   });
 }
