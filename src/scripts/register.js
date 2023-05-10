@@ -29,7 +29,7 @@ function navigationMenu() {
     let registerData = {}
     let count = 0
   
-    submitButton.addEventListener('click', async (e) => {
+    submitButton.addEventListener('click', (e) => {
       e.preventDefault()
   
       if(emailInput.value.trim() === '' || passwordInput.value.trim() === '' || nameInput.value.trim() === '') {

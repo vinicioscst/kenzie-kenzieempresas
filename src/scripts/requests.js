@@ -67,17 +67,27 @@ export async function loginRequest(loginData) {
   }).then(async (res) => {
     if (res.ok) {
       const response = await res.json();
+      const { authToken, isAdm } = response;
+      const approvedMessage = 'Login realizado com sucesso!'
 
-      if (response.isAdm === true) {
-        location.href = "./dashAdmin.html";
+      toast(approvedColor, approvedMessage);
+
+      localStorage.setItem('kenzieempresas_authToken', JSON.stringify(authToken));
+      localStorage.setItem('kenzieempresas_isAdm', JSON.stringify(isAdm));
+      setTimeout(() => {
+        if (response.isAdm === true) {
+          location.href = "./dashAdmin.html";
+        } else {
+          location.href = "./dashUser.html";
+        }
+      }, 3000)
       } else {
-        location.href = "./dashUser.html";
+        const response = await res.json();
+        toast(errorColor, response.message);
       }
-    } else {
-      const response = await res.json();
-      toast(errorColor, response.message);
-    }
   });
+
+  return loginPush
 }
 
 export async function registerRequest(registerData) {
@@ -91,10 +101,48 @@ export async function registerRequest(registerData) {
       toast(approvedColor , toastMsg);
       setTimeout(() => {
         location.href = "./login.html";
-      }, 4000)
+      }, 3000)
     } else {
       const response = await res.json();
       toast(errorColor, response.message);
     }
   });
+}
+
+export async function userProfile(token) {
+  const profileRequest = await fetch(`${baseUrl}/employees/profile`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return profileRequest
+}
+
+export async function allUsersProfile(token) {
+  const profilesRequest = await fetch(`${baseUrl}/employees/readAll`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return profilesRequest
 }

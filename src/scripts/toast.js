@@ -7,4 +7,8 @@ export function toast(color, message) {
     toast.style = `background-color: ${color}`
   
     toast.classList.remove('hidden')
+
+    setTimeout(() => {
+      toast.classList.add('hidden')
+    }, 3000)
   }

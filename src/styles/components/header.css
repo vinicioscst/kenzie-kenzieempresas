@@ -5,6 +5,9 @@
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     background-color: var(--white-mode);
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 .header__container {
