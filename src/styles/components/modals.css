@@ -1,2 +1,40 @@
 @import url('../reset.css');
 @import url('../globalStyles.css');
+
+dialog {
+    border: 0;
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.create--department__modal {
+    max-width: 31.5625rem;
+}
+
+.modal__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    
+    position: relative;
+
+    padding: 2.625rem;
+}
+
+.modal__title {
+    font: 700 2.25rem var(--font-family);
+}
+
+.close--modal__create--department {
+    position: absolute;
+    top: 1.375rem;
+    right: 1.5rem;
+}
+
+.create__department {
+    display: flex;
+    flex-direction: column;
+    gap: .9375rem;
+}

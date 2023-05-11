@@ -2,19 +2,19 @@
 @import url('../globalStyles.css');
 
 
-.login__form, .register__form {
+.login__form, .register__form, .create__department {
     display: flex;
     flex-direction: column;
     gap: .75rem;
 }
 
-.login__form input, .register__form input {
+.login__form input, .register__form input, .create__department input, .create__department select {
     padding: 15px 17px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     font: 400 1.125rem var(--font-family)
 }
 
-.login__form input:focus, .register__form input:focus {
+.login__form input:focus, .register__form input:focus, .create__department input:focus, .create__department select:focus  {
     border: 1px solid rgba(0, 0, 0, 0.5);
     outline: none;
 }

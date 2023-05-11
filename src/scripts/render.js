@@ -144,3 +144,19 @@ export function renderDepartmentsCards(departments, company) {
     )
   })
 }
+
+export function renderSelectCreateDepartmentModal(arr) {
+  const companiesList = document.querySelector(".modal__companies--list");
+  companiesList.insertAdjacentHTML(
+    "beforeend",
+    `<option value="" hidden>Selecionar Empresa</option>`
+  );
+  arr.forEach((company) => {
+  
+    companiesList.insertAdjacentHTML(
+      "beforeend",
+    `<li class="company">
+      <option value="${company.id}">${company.name}</option>
+    </li>`)
+  });
+}

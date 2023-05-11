@@ -165,3 +165,27 @@ export async function departmentsByCompany(companyId, token) {
   });
   return request
 }
+
+export async function requestCreateDepartment(token, departmentData) {
+  const request = await fetch(`${baseUrl}/departments/create`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(departmentData)
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      toast(approvedColor, response.message);
+      setTimeout(() => {
+        location.reload()
+      }, 3000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}

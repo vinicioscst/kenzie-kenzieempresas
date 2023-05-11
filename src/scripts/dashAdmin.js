@@ -1,6 +1,7 @@
-import { allUsersProfile, departmentsByCompany, getAllCompanies } from "./requests.js"
-import { renderAllUsers, renderCompaniesSelect, renderDepartmentsCards } from "./render.js"
+import { allUsersProfile, departmentsByCompany, getAllCompanies, requestCreateDepartment } from "./requests.js"
+import { renderAllUsers, renderCompaniesSelect, renderDepartmentsCards, renderSelectCreateDepartmentModal } from "./render.js"
 import { toast } from "./toast.js";
+import { showAndCloseModalCreateDepartment } from "./modal.js";
 
 const errorColor = "#ee6055";
 const approvedColor = "#60d394";
@@ -63,8 +64,55 @@ async function renderDepartments() {
 
 }
 
+async function createDepartmentModal() {
+    const requestCompanies = await getAllCompanies()
+    renderSelectCreateDepartmentModal(requestCompanies)
+    showAndCloseModalCreateDepartment()
+}
+
+async function createDepartment() {
+    const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+    const departmentName = document.querySelector('.input__department--name')
+    const departmentdescription = document.querySelector('.input__department--description')
+    const company = document.querySelector('.modal__companies--list')
+    const sendRequestBtn = document.querySelector('.create__department button')
+    const errorColor = "#ee6055";
+    let departmentData = {}
+    let count = 0
+
+    company.addEventListener('change', (e) => {
+        const companyId = e.target.options[e.target.selectedIndex].value;
+        
+        if (companyId.trim() === "") {
+            count++
+        } else {
+            departmentData[company.name] = companyId
+        }
+    })
+    
+    sendRequestBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+        
+        if(departmentName.value.trim() === "" || departmentdescription.value.trim() === "") {
+            count++
+        } else {
+            departmentData[departmentName.name] = departmentName.value
+            departmentData[departmentdescription.name] = departmentdescription.value
+        }
+
+        if(count !== 0) {
+            count = 0
+            toast(errorColor, 'Por favor, preencha todos os dados')
+        } else {
+            requestCreateDepartment(token, departmentData)
+        }
+    })
+}
+
 
 navigationMenu()
 renderSelect()
 renderDepartments()
 renderUsersList()
+createDepartmentModal()
+createDepartment()

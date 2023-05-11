@@ -60,8 +60,19 @@
       <p></p>
     </div>
 
-    <dialog class="admin--dashboard__modal">
-      <div class="modal__controller"></div>
+    <dialog class="create--department__modal">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title">Criar Departamento</h2>
+          <img class="close--modal__create--department" src="../images/vectors/close-modal.svg" alt="Fechar">
+        </div>
+        <form class="create__department">
+          <input type="text" name="name" class="input__department--name" placeholder="Nome do departamento">
+          <input type="text" name="description" class="input__department--description" placeholder="Descrição">
+          <select name="company_id" class="modal__companies--list"></select>
+          <button type="submit">Criar</button>
+        </form>
+      </div>
     </dialog>
   </body>
 </html>

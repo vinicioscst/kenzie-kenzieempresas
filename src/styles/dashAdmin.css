@@ -4,6 +4,7 @@
 @import url('./components/buttons.css');
 @import url('./components/forms.css');
 @import url('./components/toast.css');
+@import url('./components/modals.css');
 
 
 .app {
@@ -73,17 +74,20 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
     gap: 2.6875rem;
-
+    
     width: 100%;
     height: 24.0625rem;
-
+    
     padding: 3.125rem 3.4375rem;
-
+    
     overflow-y: auto;
 
     box-shadow: 0rem 0rem 1.5625rem rgba(0, 0, 0, 0.25);
+}
+
+.no--departments__container {
+    align-items: center;
 }
 
 .department__card, .users__card {

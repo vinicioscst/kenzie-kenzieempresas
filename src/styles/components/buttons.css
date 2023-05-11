@@ -70,3 +70,15 @@
     font: 400 1rem var(--font-family);
     color: var(--color-brand-1);
 }
+
+.create__department button {
+    background-color: var(--color-action-1);
+    border: 0;
+    
+    padding: 12px 0px;
+
+    font: var(--button);
+    color: var(--white-mode);
+
+    cursor: pointer;
+}
