@@ -146,3 +146,22 @@ export async function allUsersProfile(token) {
   });
   return profilesRequest
 }
+
+export async function departmentsByCompany(companyId, token) {
+  const request = await fetch(`${baseUrl}/departments/readByCompany/${companyId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}

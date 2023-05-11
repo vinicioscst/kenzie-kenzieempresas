@@ -46,26 +46,33 @@
     right: 9%;
 }
 
+.departments__section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
 .departments__container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
 
-.departments__container > .departments__header {
+.departments__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.departments__container > .departments__header > .departments--section__title, .registered--users__container > .users--section__title {
+.departments__header > .departments--section__title, .registered--users__container > .users--section__title {
     font: 700 1.875rem var(--font-family);
 }
 
-.departments__container > .departments__list {
+.departments__list, .no--departments__container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     gap: 2.6875rem;
 
     width: 100%;
@@ -119,15 +126,15 @@
     cursor: pointer;
 }
 
-.card__options > .view--card__img {
+.card__options > .view--department--card__img {
     width: 2.005rem;
 }
 
-.card__options > .edit--card__img {
+.card__options > .edit--department--card__img, .card__options > .edit--user--card__img {
     width: 1.7181rem;
 }
 
-.card__options > .delete--card__img {
+.card__options > .delete--department--card__img, .card__options > .delete--user--card__img {
     width: 1.4169rem;
 }
 
@@ -162,3 +169,6 @@
     overflow-y: auto;
 }
 
+.hidden {
+    display: none;
+}

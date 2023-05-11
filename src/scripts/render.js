@@ -74,7 +74,7 @@ export function renderCompaniesSelect(arr) {
     companiesSelect.insertAdjacentHTML(
       "beforeend",
     `<li class="company">
-      <option id="${company.id}" value="${company.name}">${company.name}</option>
+      <option value="${company.id}">${company.name}</option>
     </li>`)
   });
 
@@ -100,8 +100,8 @@ export function renderAllUsers(arr, companies) {
         <p class="company__name">Não possui contratação</p>
       </div>
       <div class="card__options">
-        <img src="../images/vectors/edit.svg" alt="Editar" />
-        <img src="../images/vectors/delete.svg" alt="Deletar" />
+        <img class="edit--user--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+        <img class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
       </div>
     </div>`)
     } else {
@@ -113,10 +113,34 @@ export function renderAllUsers(arr, companies) {
         <p class="company__name">${filteredCompany[0].name}</p>
       </div>
       <div class="card__options">
-        <img src="../images/vectors/edit.svg" alt="Editar" />
-        <img src="../images/vectors/delete.svg" alt="Deletar" />
+        <img class="edit--user--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+        <img class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
       </div>
     </div>`)
     }
   });
+}
+
+
+export function renderDepartmentsCards(departments, company) {
+  const departmentsList = document.querySelector('.departments__list')
+  departmentsList.innerHTML = ''
+
+  departments.forEach((department) => {
+    console.log(department)
+    departmentsList.insertAdjacentHTML("beforeend",
+    `<div class="department__card">
+    <div class="department__info">
+      <h4 class="department__name">${department.name}</h4>
+      <p class="department__description">${department.description}</p>
+      <p class="company__name">${company}</p>
+    </div>
+    <div class="card__options">
+      <img class="view--department--card__img" src="../images/vectors/view.svg" alt="Visualizar" />
+      <img class="edit--department--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+      <img class="delete--department--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
+    </div>
+  </div>`
+    )
+  })
 }
