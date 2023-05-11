@@ -15,7 +15,7 @@
     
     transform: translateX(200%);
 
-    animation: popup 3s;
+    animation: popup 2s;
 }
 
 @keyframes popup {

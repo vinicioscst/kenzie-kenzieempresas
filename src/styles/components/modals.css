@@ -3,14 +3,19 @@
 
 dialog {
     border: 0;
+    padding: 0;
 }
 
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.4);
 }
 
-.create--department__modal {
+.create--department__modal, .edit--user__modal {
     max-width: 31.5625rem;
+}
+
+.delete--user__modal {
+    max-width: 45.8125rem;
 }
 
 .modal__container {
@@ -23,14 +28,25 @@ dialog::backdrop {
     padding: 2.625rem;
 }
 
+.delete--user__modal > .modal__container {
+    padding: 4.375rem 9.375rem 3.4375rem;
+}
+
 .modal__title {
     font: 700 2.25rem var(--font-family);
 }
 
-.close--modal__create--department {
+.modal__title--secondary {
+    font: 700 1.75rem var(--font-family);
+    text-align: center;
+}
+
+.close--modal__create--department, .close--modal__edit--user, .close--modal__delete--user {
     position: absolute;
     top: 1.375rem;
-    right: 1.5rem;
+    right: 1.375rem;
+
+    cursor: pointer;
 }
 
 .create__department {

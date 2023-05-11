@@ -56,10 +56,15 @@
       </section>
     </main>
 
+    <!-- TOAST -->
+
     <div class="toast__message hidden">
       <p></p>
     </div>
 
+    <!-- MODAIS -->
+
+    <!-- Criar Departamento -->
     <dialog class="create--department__modal">
       <div class="modal__container">
         <div class="modal__header">
@@ -71,6 +76,34 @@
           <input type="text" name="description" class="input__department--description" placeholder="Descrição">
           <select name="company_id" class="modal__companies--list"></select>
           <button type="submit">Criar</button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- Editar Usuário -->
+    <dialog class="edit--user__modal">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title">Editar Usuário</h2>
+          <img class="close--modal__edit--user" src="../images/vectors/close-modal.svg" alt="Fechar">
+        </div>
+        <form class="edit__user">
+          <input type="text" name="name" class="input__user--name" placeholder="Nome">
+          <input type="text" name="email" class="input__user--email" placeholder="Email">
+          <button type="submit">Salvar</button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- Deletar Usuário -->
+    <dialog class="delete--user__modal">
+      <div class="modal__container">
+        <div class="modal__header">
+          <h2 class="modal__title--secondary"></h2>
+          <img class="close--modal__delete--user" src="../images/vectors/close-modal.svg" alt="Fechar">
+        </div>
+        <form class="delete__user">
+          <button type="submit">Remover</button>
         </form>
       </div>
     </dialog>

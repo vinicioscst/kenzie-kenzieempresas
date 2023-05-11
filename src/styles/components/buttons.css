@@ -71,8 +71,20 @@
     color: var(--color-brand-1);
 }
 
-.create__department button {
+.create__department button, .edit__user button {
     background-color: var(--color-action-1);
+    border: 0;
+    
+    padding: 12px 0px;
+
+    font: var(--button);
+    color: var(--white-mode);
+
+    cursor: pointer;
+}
+
+.delete__user button {
+    background-color: var(--color-action-2);
     border: 0;
     
     padding: 12px 0px;

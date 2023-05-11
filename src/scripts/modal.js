@@ -12,3 +12,62 @@ export function showAndCloseModalCreateDepartment () {
         modal.close()
     })
 }
+
+export function closeModalCreateDepartment () {
+    const modal = document.querySelector('.create--department__modal')
+
+    modal.close()
+}
+
+export function showAndCloseEditUser() {
+    const modal = document.querySelector('.edit--user__modal')
+    const closeModal = document.querySelector('.close--modal__edit--user')
+    const editBtn = document.querySelectorAll('.edit--user--card__img')
+    
+    editBtn.forEach(button => {
+        const userId = button.dataset.id
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('kenzieempresas_userid', userId)
+            modal.showModal()
+        })
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.close()
+    })
+}
+
+export function closeModalEditUser () {
+    const modal = document.querySelector('.edit--user__modal')
+
+    modal.close()
+}
+
+export function showAndCloseDeleteUser() {
+    const modal = document.querySelector('.delete--user__modal')
+    const modalText = document.querySelector('.modal__title--secondary')
+    const closeModal = document.querySelector('.close--modal__delete--user')
+    const deleteBtn = document.querySelectorAll('.delete--user--card__img')
+    
+    deleteBtn.forEach(button => {
+        const userId = button.dataset.id
+        const userName = button.dataset.username
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('kenzieempresas_userid', userId)
+            modalText.innerText = `Realmente deseja remover o usuário ${userName}?`
+            modal.showModal()
+        })
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.close()
+    })
+}
+
+export function closeModalDeleteUser () {
+    const modal = document.querySelector('.delete--user__modal')
+
+    modal.close()
+}

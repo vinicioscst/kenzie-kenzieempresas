@@ -80,7 +80,7 @@ export async function loginRequest(loginData) {
         } else {
           location.href = "./dashUser.html";
         }
-      }, 3000)
+      }, 2000)
       } else {
         const response = await res.json();
         toast(errorColor, response.message);
@@ -101,7 +101,7 @@ export async function registerRequest(registerData) {
       toast(approvedColor , toastMsg);
       setTimeout(() => {
         location.href = "./login.html";
-      }, 3000)
+      }, 2000)
     } else {
       const response = await res.json();
       toast(errorColor, response.message);
@@ -176,11 +176,55 @@ export async function requestCreateDepartment(token, departmentData) {
     body: JSON.stringify(departmentData)
   }).then(async (res) => {
     if (res.ok) {
-      const response = await res.json();
-      toast(approvedColor, response.message);
+      toast(approvedColor, 'Departamento criado com sucesso!');
       setTimeout(() => {
         location.reload()
-      }, 3000)
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function requestEditUser(token, userData, userId) {
+  const request = await fetch(`${baseUrl}/employees/updateEmployee/${userId}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userData)
+  }).then(async (res) => {
+    if (res.ok) {
+      toast(approvedColor, 'Usuário editado com sucesso!');
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function requestDeleteUser(token, userId) {
+  const request = await fetch(`${baseUrl}/employees/deleteEmployee/${userId}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      toast(approvedColor, 'Usuário deletado com sucesso!');
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
     } else {
       const response = await res.json();
       

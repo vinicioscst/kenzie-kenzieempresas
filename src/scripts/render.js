@@ -100,8 +100,8 @@ export function renderAllUsers(arr, companies) {
         <p class="company__name">Não possui contratação</p>
       </div>
       <div class="card__options">
-        <img class="edit--user--card__img" src="../images/vectors/edit.svg" alt="Editar" />
-        <img class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
+        <img data-id="${user.id}" class="edit--user--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+        <img data-id="${user.id}" data-username="${user.name}" class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
       </div>
     </div>`)
     } else {
