@@ -14,6 +14,10 @@ dialog::backdrop {
     max-width: 31.5625rem;
 }
 
+.edit--department__modal {
+    width: 31.5625rem;
+}
+
 .view--department__modal {
     width: 53.5625rem;
 }
@@ -45,7 +49,7 @@ dialog::backdrop {
     text-align: center;
 }
 
-.close--modal__create--department, .close--modal__edit--user, .close--modal__delete--user, .close--modal__view--department {
+.close--modal__create--department, .close--modal__edit--user, .close--modal__delete--user, .close--modal__view--department, .close--modal__edit--department {
     position: absolute;
     top: 1.375rem;
     right: 1.375rem;
@@ -112,3 +116,6 @@ dialog::backdrop {
     font: 700 1.25rem var(--font-family)
 }
 
+.edit--department__modal > .modal__container > .modal__header {
+    align-items: flex-start;
+}

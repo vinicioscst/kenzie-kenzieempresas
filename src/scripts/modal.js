@@ -1,4 +1,4 @@
-import { dismissUser, hireUser } from "./dashAdmin.js"
+import { dismissUser, editDepartment, hireUser } from "./dashAdmin.js"
 import { renderDepartmentEmployees, renderEmployeesOutOfWork, renderModalTexts } from "./render.js"
 import { allUsersOutOfWork, allUsersProfile, getAllCompanies, readAllDepartments } from "./requests.js"
 
@@ -58,6 +58,32 @@ export async function showAndCloseModalViewDepartment () {
 
 export function closeModalViewDepartment () {
     const modal = document.querySelector('.view--department__modal')
+
+    modal.close()
+}
+
+export async function showAndCloseModalEditDepartment () {
+    const modal = document.querySelector('.edit--department__modal')
+    const editDepartmentBtn = document.querySelectorAll('.edit--department--card__img')
+    const closeModal = document.querySelector('.close--modal__edit--department')
+    
+    editDepartmentBtn.forEach((button) => {
+        const departmentId = button.dataset.id
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('kenzieempresas_departmentid', departmentId)
+            editDepartment() 
+            modal.showModal()
+        })
+    })
+
+    closeModal.addEventListener('click', () => {
+        modal.close()
+    })
+
+}
+export async function closeModalEditDepartment () {
+    const modal = document.querySelector('.edit--department__modal')
 
     modal.close()
 }

@@ -2,16 +2,25 @@
 @import url('../globalStyles.css');
 
 
-.login__form, .register__form, .create__department, .edit__user, .delete__user {
+.login__form, .register__form, .create__department, .edit__user, .delete__user, .edit__department {
     display: flex;
     flex-direction: column;
     gap: .75rem;
 }
 
-.login__form input, .register__form input, dialog input, dialog select {
+.login__form input, .register__form input, dialog input, dialog select, dialog textarea {
     padding: 15px 17px;
     border: 1px solid rgba(0, 0, 0, 0.2);
     font: 400 1.125rem var(--font-family)
+}
+
+dialog textarea {
+    outline: 0;
+    padding: 1.0625rem;
+}
+
+dialog textarea::placeholder {
+    font: 400 1.0625rem var(--font-family);
 }
 
 .login__form input:focus, .register__form input:focus, dialog input:focus, dialog select:focus  {

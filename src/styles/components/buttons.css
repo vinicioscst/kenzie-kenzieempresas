@@ -71,7 +71,7 @@
     color: var(--color-brand-1);
 }
 
-.create__department button, .edit__user button, .hire--employee button {
+.create__department button, .edit__user button, .hire--employee button, .edit__department button {
     background-color: var(--color-action-1);
     border: 0;
     

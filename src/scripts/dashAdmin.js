@@ -1,7 +1,7 @@
-import { allUsersProfile, departmentsByCompany, dismissEmployee, getAllCompanies, hireEmployee, requestCreateDepartment, requestDeleteUser, requestEditUser } from "./requests.js"
+import { allUsersProfile, departmentsByCompany, dismissEmployee, getAllCompanies, hireEmployee, requestCreateDepartment, requestDeleteUser, requestEditDepartment, requestEditUser } from "./requests.js"
 import { renderAllUsers, renderCompaniesSelect, renderDepartmentsCards, renderSelectCreateDepartmentModal } from "./render.js"
 import { toast } from "./toast.js";
-import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndCloseEditUser, closeModalEditUser, showAndCloseDeleteUser, closeModalDeleteUser, showAndCloseModalViewDepartment, closeModalViewDepartment } from "./modal.js";
+import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndCloseEditUser, closeModalEditUser, showAndCloseDeleteUser, closeModalDeleteUser, showAndCloseModalViewDepartment, closeModalViewDepartment, showAndCloseModalEditDepartment, closeModalEditDepartment } from "./modal.js";
 
 const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
 const errorColor = "#ee6055";
@@ -23,8 +23,10 @@ function navigationMenu() {
     const logoutButton = document.querySelector(".button__logout");
   
     logoutButton.addEventListener("click", () => {
-        const token = localStorage.clear("kenzieempresas_authToken");
-        const isAdm = localStorage.clear("kenzieempresas_isAdm");
+        localStorage.clear("kenzieempresas_authToken");
+        localStorage.clear("kenzieempresas_isAdm");
+        localStorage.clear("kenzieempresas_departmentid");
+        localStorage.clear("kenzieempresas_userid");
 
         toast(approvedColor, 'Logout realizado com sucesso! Até logo 👋');
         setTimeout(() => { location.href = "./login.html"; }, 2000)
@@ -69,6 +71,7 @@ async function renderDepartments() {
             noDepartmentTextSection.classList.add('hidden')
             renderDepartmentsCards(request, companyName)
             showAndCloseModalViewDepartment()
+            showAndCloseModalEditDepartment()
         }
         
     })
@@ -165,6 +168,32 @@ export async function dismissUser () {
             closeModalViewDepartment()
         })
     })
+}
+
+export async function editDepartment () {
+    const departmentId = localStorage.getItem("kenzieempresas_departmentid");
+    const newDescription = document.querySelector('.edit__department textarea')
+    const editBtn = document.querySelector('.edit__department button')
+    let departmentData = {}
+    let count = 0
+
+    editBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+            
+            if(newDescription.value.trim() === '') {
+                count++
+            } else {
+                departmentData[newDescription.name] = newDescription.value
+            }
+
+            if(count !== 0) {
+                count = 0
+                toast(errorColor, 'Por favor, insira uma descrição')
+            } else {
+                requestEditDepartment(token, departmentId, departmentData)
+                closeModalEditDepartment()
+        }
+        })
 }
 
 async function editUser () {

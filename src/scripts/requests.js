@@ -192,6 +192,30 @@ export async function requestCreateDepartment(token, departmentData) {
   return request
 }
 
+export async function requestEditDepartment(token, departmentId, departmentData) {
+  const request = await fetch(`${baseUrl}/departments/update/${departmentId}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(departmentData)
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      toast(approvedColor, response.message);
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
 export async function requestEditUser(token, userData, userId) {
   const request = await fetch(`${baseUrl}/employees/updateEmployee/${userId}`, {
     method: "PATCH",

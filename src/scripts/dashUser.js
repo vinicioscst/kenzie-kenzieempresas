@@ -19,8 +19,10 @@ function navigationMenu() {
     const logoutButton = document.querySelector(".button__logout");
   
     logoutButton.addEventListener("click", () => {
-        const token = localStorage.clear("kenzieempresas_authToken");
-        const isAdm = localStorage.clear("kenzieempresas_isAdm");
+      localStorage.clear("kenzieempresas_authToken");
+      localStorage.clear("kenzieempresas_isAdm");
+      localStorage.clear("kenzieempresas_departmentid");
+      localStorage.clear("kenzieempresas_userid");
 
         toast(approvedColor, 'Logout realizado com sucesso! Até logo 👋');
         setTimeout(() => { location.href = "./login.html"; }, 2000)
