@@ -1,6 +1,19 @@
 import { getAllCategories, getAllCompanies, getCompaniesByName, } from "./requests.js";
 import { renderCategoriesList, renderCompaniesList } from "./render.js";
 
+
+function authentication() {
+  const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+  const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
+
+  if(token && isAdm === true) {
+    location.replace('./src/pages/dashAdmin.html')
+  } else if(token && isAdm === false) {
+    location.replace('./src/pages/dashUser.html')
+  } 
+}
+
+
 function navigationMenu() {
   const loginButton = document.querySelector(".button__login");
   const registerButton = document.querySelector(".button__register");
@@ -43,6 +56,7 @@ async function filterCompanies() {
   });
 }
 
+authentication()
 navigationMenu();
 renderCategoriesAndCompanies();
 filterCompanies();

@@ -1,6 +1,17 @@
 import { registerRequest } from "./requests.js";
 import { toast } from "./toast.js";
 
+function authentication() {
+  const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+  const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
+
+  if(token && isAdm === true) {
+    location.replace('./dashAdmin.html')
+  } else if(token && isAdm === false) {
+    location.replace('./dashUser.html')
+  } 
+}
+
 function navigationMenu() {
     const homeButton = document.querySelector(".button__home");
     const loginButton = document.querySelector(".button__login");
@@ -52,5 +63,7 @@ function navigationMenu() {
   
   }
   
+
+  authentication()
   navigationMenu();
   registerEmployee();

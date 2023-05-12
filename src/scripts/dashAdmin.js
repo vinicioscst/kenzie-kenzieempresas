@@ -7,6 +7,18 @@ const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
 const errorColor = "#ee6055";
 const approvedColor = "#60d394";
 
+
+function authentication() {
+    const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+    const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
+  
+    if(token && isAdm === false) {
+      location.replace('./dashUser.html')
+    } else if(!token) {
+      location.replace('./login.html')
+    } 
+  }
+
 function navigationMenu() {
     const logoutButton = document.querySelector(".button__logout");
   
@@ -151,7 +163,7 @@ async function deleteUser () {
     })
 }
 
-
+authentication()
 navigationMenu()
 renderSelect()
 renderDepartments()
