@@ -41,3 +41,16 @@ body {
 .hidden {
     display: none;
 }
+
+::-webkit-scrollbar {
+  width: .625rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-grey-4); 
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-1); 
+}
