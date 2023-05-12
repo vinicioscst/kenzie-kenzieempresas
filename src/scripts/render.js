@@ -114,7 +114,7 @@ export function renderAllUsers(arr, companies) {
       </div>
       <div class="card__options">
         <img data-id="${user.id}" class="edit--user--card__img" src="../images/vectors/edit.svg" alt="Editar" />
-        <img data-id="${user.id}" class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
+        <img data-id="${user.id}" data-username="${user.name}" class="delete--user--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
       </div>
     </div>`)
     }
@@ -136,9 +136,9 @@ export function renderDepartmentsCards(departments, company) {
       <p class="company__name">${company}</p>
     </div>
     <div class="card__options">
-      <img data-id="${department.id}" class="view--department--card__img" src="../images/vectors/view.svg" alt="Visualizar" />
-      <img data-id="${department.id}" class="edit--department--card__img" src="../images/vectors/edit.svg" alt="Editar" />
-      <img data-id="${department.id}" class="delete--department--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
+      <img data-id="${department.id}" data-name="${department.name}" class="view--department--card__img" src="../images/vectors/view.svg" alt="Visualizar" />
+      <img data-id="${department.id}" data-name="${department.name}" class="edit--department--card__img" src="../images/vectors/edit.svg" alt="Editar" />
+      <img data-id="${department.id}" data-name="${department.name}" class="delete--department--card__img" src="../images/vectors/delete.svg" alt="Deletar" />
     </div>
   </div>`
     )
@@ -223,4 +223,11 @@ export function renderDepartmentEmployees (employees, department, companies) {
      </li>`
     )
   })
+}
+
+export function renderDeleteDepartmentTitle () {
+  const departmentName = localStorage.getItem("kenzieempresas_departmentname");
+  const modalTitle = document.querySelector('.delete--department__modal h2')
+
+  modalTitle.innerText = `Realmente deseja remover o Departamento ${departmentName} e demitir seus funcionários?`
 }

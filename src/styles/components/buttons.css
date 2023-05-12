@@ -87,10 +87,10 @@
     padding: 1rem 2.625rem;
 }
 
-.delete__user button {
+.delete__user button, .delete__department button {
     background-color: var(--color-action-2);
     border: 0;
-    
+
     padding: 12px 0px;
 
     font: var(--button);

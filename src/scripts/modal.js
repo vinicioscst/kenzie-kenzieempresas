@@ -1,5 +1,5 @@
-import { dismissUser, editDepartment, hireUser } from "./dashAdmin.js"
-import { renderDepartmentEmployees, renderEmployeesOutOfWork, renderModalTexts } from "./render.js"
+import { deleteDepartment, dismissUser, editDepartment, hireUser } from "./dashAdmin.js"
+import { renderDeleteDepartmentTitle, renderDepartmentEmployees, renderEmployeesOutOfWork, renderModalTexts } from "./render.js"
 import { allUsersOutOfWork, allUsersProfile, getAllCompanies, readAllDepartments } from "./requests.js"
 
 
@@ -88,6 +88,35 @@ export async function closeModalEditDepartment () {
     modal.close()
 }
 
+export async function showAndCloseModalDeleteDepartment () {
+    const modal = document.querySelector('.delete--department__modal')
+    const deleteDepartmentBtn = document.querySelectorAll('.delete--department--card__img')
+    const closeModal = document.querySelector('.close--modal__delete--department')
+    
+    deleteDepartmentBtn.forEach((button) => {
+        const departmentName = button.dataset.name
+        const departmentId = button.dataset.id
+
+        button.addEventListener('click', () => {
+            localStorage.setItem('kenzieempresas_departmentname', departmentName)
+            localStorage.setItem('kenzieempresas_departmentid', departmentId)
+
+            renderDeleteDepartmentTitle()
+            deleteDepartment() 
+            modal.showModal()
+        })
+    })
+
+    closeModal.addEventListener('click', () => {
+        modal.close()
+    })
+
+}
+export async function closeModalDeleteDepartment () {
+    const modal = document.querySelector('.delete--department__modal')
+
+    modal.close()
+}
 
 export function showAndCloseEditUser() {
     const modal = document.querySelector('.edit--user__modal')
@@ -116,7 +145,7 @@ export function closeModalEditUser () {
 
 export function showAndCloseDeleteUser() {
     const modal = document.querySelector('.delete--user__modal')
-    const modalText = document.querySelector('.modal__title--secondary')
+    const modalText = document.querySelector('.delete--user__title')
     const closeModal = document.querySelector('.close--modal__delete--user')
     const deleteBtn = document.querySelectorAll('.delete--user--card__img')
     

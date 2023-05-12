@@ -6,6 +6,7 @@ import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndC
 const errorColor = "#ee6055";
 const approvedColor = "#60d394";
 
+
 function authentication() {
     const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
     const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
@@ -21,7 +22,10 @@ function navigationMenu() {
     const logoutButton = document.querySelector(".button__logout");
   
     logoutButton.addEventListener("click", () => {
-        localStorage.clear();
+        localStorage.clear("kenzieempresas_authToken");
+        localStorage.clear("kenzieempresas_isAdm");
+        localStorage.clear("kenzieempresas_departmentid");
+        localStorage.clear("kenzieempresas_userid");
 
         toast(approvedColor, 'Logout realizado com sucesso! Até logo 👋');
         setTimeout(() => { location.href = "./login.html"; }, 2000)
@@ -252,12 +256,12 @@ async function deleteUser () {
     })
 }
 
-authentication()
-navigationMenu()
-renderSelect()
-renderDepartments()
-renderUsersList()
-createDepartmentModal()
-createDepartment()
-editUser()
-deleteUser()
+// authentication()
+// navigationMenu()
+// renderSelect()
+// renderDepartments()
+// renderUsersList()
+// createDepartmentModal()
+// createDepartment()
+// editUser()
+// deleteUser()

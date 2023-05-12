@@ -1,6 +1,3 @@
-import { renderUsersList } from "./dashAdmin.js";
-import { showAndCloseModalViewDepartment } from "./modal.js";
-import { renderEmployeesOutOfWork } from "./render.js";
 import { toast } from "./toast.js";
 
 const baseUrl = "http://localhost:3333";
@@ -326,6 +323,29 @@ export async function hireEmployee (token, department, userId) {
 export async function dismissEmployee (token, userId) {
   const request = await fetch(`${baseUrl}/employees/dismissEmployee/${userId}`, {
     method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      toast(approvedColor, response.message);
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function requestDeleteDepartment (token, departmentId) {
+  const request = await fetch(`${baseUrl}/departments/delete/${departmentId}`, {
+    method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",

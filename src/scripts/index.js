@@ -6,15 +6,15 @@ function authentication() {
   const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
   const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
 
-  if(token && isAdm === true) {
-    location.replace('./src/pages/dashAdmin.html')
-  } else if(token && isAdm === false) {
-    location.replace('./src/pages/dashUser.html')
+  if(token === true && isAdm === true) {
+    location.replace('.src/pages/dashAdmin.html')
+  } else if(token === true && isAdm === false) {
+    location.replace('.src/pages/dashUser.html')
   } 
 }
 
 
-function navigationMenu() {
+function indexNavigationMenu() {
   const loginButton = document.querySelector(".button__login");
   const registerButton = document.querySelector(".button__register");
 
@@ -35,8 +35,6 @@ async function renderCategoriesAndCompanies() {
   renderCompaniesList(requestCompanies, requestCategories);
 }
 
-async function renderCompanies() {
-}
 
 async function filterCompanies() {
   const select = document.querySelector(".departments__container");
@@ -57,6 +55,6 @@ async function filterCompanies() {
 }
 
 authentication()
-navigationMenu();
+indexNavigationMenu();
 renderCategoriesAndCompanies();
 filterCompanies();

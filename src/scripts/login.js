@@ -5,14 +5,14 @@ function authentication() {
   const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
   const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
 
-  if(token && isAdm === true) {
+  if(token === true && isAdm === true) {
     location.replace('./dashAdmin.html')
-  } else if(token && isAdm === false) {
+  } else if(token === true && isAdm === false) {
     location.replace('./dashUser.html')
   } 
 }
 
-function navigationMenu() {
+function loginNavigationMenu() {
     const homeButton = document.querySelector(".button__home");
     const registerButton = document.querySelector(".button__register");
     const formRegisterButton = document.querySelector(".form__goToRegister");
@@ -63,5 +63,5 @@ function login () {
   
 
 authentication()
-navigationMenu();
+loginNavigationMenu();
 login();
