@@ -33,6 +33,15 @@ async function getUserProfile() {
   const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
 
   const request = await userProfile(token);
+  
+  renderUserInfo(request);
+}
+
+async function getUserDepartmentInfo() {
+  const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+
+  // const request = await userProfile(token);
+  // const request = await userProfile(token);
   console.log(request)
   renderUserInfo(request);
 }

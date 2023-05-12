@@ -6,10 +6,10 @@ function authentication() {
   const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
   const isAdm = JSON.parse(localStorage.getItem("kenzieempresas_isAdm"));
 
-  if(token === true && isAdm === true) {
-    location.replace('.src/pages/dashAdmin.html')
-  } else if(token === true && isAdm === false) {
-    location.replace('.src/pages/dashUser.html')
+  if(token && isAdm === true) {
+    location.replace('./src/pages/dashAdmin.html')
+  } else if(token && isAdm === false) {
+    location.replace('./src/pages/dashUser.html')
   } 
 }
 
