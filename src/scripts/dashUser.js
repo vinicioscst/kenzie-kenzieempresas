@@ -1,5 +1,5 @@
-import { userProfile } from "./requests.js";
-import { renderUserInfo } from "./render.js";
+import { getDepartmentById, userProfile } from "./requests.js";
+import { renderUserDepartmentDetails, renderUserInfo } from "./render.js";
 import { toast } from "./toast.js";
 
 const approvedColor = "#60d394";
@@ -25,7 +25,7 @@ function navigationMenu() {
       localStorage.clear("kenzieempresas_userid");
 
         toast(approvedColor, 'Logout realizado com sucesso! Até logo 👋');
-        setTimeout(() => { location.href = "./login.html"; }, 2000)
+        setTimeout(() => { location.href = "../../"; }, 2000)
     });
 }
 
@@ -39,13 +39,22 @@ async function getUserProfile() {
 
 async function getUserDepartmentInfo() {
   const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
-
-  // const request = await userProfile(token);
-  // const request = await userProfile(token);
-  console.log(request)
-  renderUserInfo(request);
+  const userProfileRequest = await userProfile(token);
+  const userDepartmentId = userProfileRequest.department_id
+  
+  if(userProfileRequest.department_id !== null) {
+    const getUserDepartment = await getDepartmentById(token, userDepartmentId)
+    
+    const userDepartmentName = getUserDepartment.name
+    const userCompanyName = getUserDepartment.company.name
+    const userDepartmentEmployees = getUserDepartment.employees
+  
+    renderUserDepartmentDetails(userDepartmentName, userCompanyName, userDepartmentEmployees)
+  }
+  
 }
 
 authentication()
 navigationMenu()
 getUserProfile();
+getUserDepartmentInfo()

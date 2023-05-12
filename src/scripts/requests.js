@@ -365,3 +365,24 @@ export async function requestDeleteDepartment (token, departmentId) {
   });
   return request
 }
+
+
+
+export async function getDepartmentById (token, departmentId) {
+  const request = await fetch(`${baseUrl}/departments/readById/${departmentId}`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}

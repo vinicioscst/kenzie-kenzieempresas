@@ -91,7 +91,7 @@ export function renderAllUsers(arr, companies) {
       return user.company_id === company.id
     })
     
-    if(user.company_id === null) {
+    if(user.department_id === null) {
       allUsersList.insertAdjacentHTML(
         "beforeend",
       `<div class="users__card">
@@ -230,4 +230,21 @@ export function renderDeleteDepartmentTitle () {
   const modalTitle = document.querySelector('.delete--department__modal h2')
 
   modalTitle.innerText = `Realmente deseja remover o Departamento ${departmentName} e demitir seus funcionários?`
+}
+
+export function renderUserDepartmentDetails (department, company, employees) {
+  const companyAndDepartmentNames = document.querySelector('.company--department__name')
+  const employeesList = document.querySelector('.employeers__list')
+  
+  companyAndDepartmentNames.innerText = `${company} - ${department}`
+
+  employeesList.innerHTML = ''
+    employees.forEach((employee) => {
+      employeesList.insertAdjacentHTML('beforeend', `
+      <div class="employee__card">
+      <h4 class="employee__name">${employee.name}</h4>
+      </div>
+      `)
+    })
+
 }

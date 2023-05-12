@@ -91,6 +91,8 @@
     background-color: var(--color-action-2);
     border: 0;
 
+    width: 100%;
+
     padding: 12px 0px;
 
     font: var(--button);

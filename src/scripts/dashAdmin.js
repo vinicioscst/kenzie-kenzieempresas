@@ -24,7 +24,7 @@ function navigationMenu() {
         localStorage.clear();
 
         toast(approvedColor, 'Logout realizado com sucesso! Até logo 👋');
-        setTimeout(() => { location.href = "./login.html"; }, 2000)
+        setTimeout(() => { location.href = "../../"; }, 2000)
     });
 }
 
