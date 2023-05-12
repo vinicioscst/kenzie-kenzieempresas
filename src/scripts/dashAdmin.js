@@ -1,4 +1,4 @@
-import { allUsersProfile, departmentsByCompany, getAllCompanies, hireEmployee, requestCreateDepartment, requestDeleteUser, requestEditUser } from "./requests.js"
+import { allUsersProfile, departmentsByCompany, dismissEmployee, getAllCompanies, hireEmployee, requestCreateDepartment, requestDeleteUser, requestEditUser } from "./requests.js"
 import { renderAllUsers, renderCompaniesSelect, renderDepartmentsCards, renderSelectCreateDepartmentModal } from "./render.js"
 import { toast } from "./toast.js";
 import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndCloseEditUser, closeModalEditUser, showAndCloseDeleteUser, closeModalDeleteUser, showAndCloseModalViewDepartment, closeModalViewDepartment } from "./modal.js";
@@ -151,7 +151,20 @@ export async function hireUser () {
             closeModalViewDepartment()
         }
     })
+}
 
+export async function dismissUser () {
+    const dismissBtn = document.querySelectorAll('.dismiss__employee')
+
+    dismissBtn.forEach((button) => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault()
+            const userId = button.dataset.id
+
+            dismissEmployee(token, userId)
+            closeModalViewDepartment()
+        })
+    })
 }
 
 async function editUser () {

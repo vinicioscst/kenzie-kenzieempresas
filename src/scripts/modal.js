@@ -1,4 +1,4 @@
-import { hireUser } from "./dashAdmin.js"
+import { dismissUser, hireUser } from "./dashAdmin.js"
 import { renderDepartmentEmployees, renderEmployeesOutOfWork, renderModalTexts } from "./render.js"
 import { allUsersOutOfWork, allUsersProfile, getAllCompanies, readAllDepartments } from "./requests.js"
 
@@ -45,6 +45,7 @@ export async function showAndCloseModalViewDepartment () {
             renderDepartmentEmployees(allEmployees, departmentId, allCompanies)
 
             hireUser()
+            dismissUser()
 
             modal.showModal()
         })

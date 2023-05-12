@@ -298,3 +298,26 @@ export async function hireEmployee (token, department, userId) {
   });
   return request
 }
+
+export async function dismissEmployee (token, userId) {
+  const request = await fetch(`${baseUrl}/employees/dismissEmployee/${userId}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      toast(approvedColor, response.message);
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}

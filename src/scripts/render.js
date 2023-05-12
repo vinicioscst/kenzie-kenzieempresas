@@ -219,7 +219,7 @@ export function renderDepartmentEmployees (employees, department, companies) {
       <h4>${departmentEmployee.name}</h4>
       <p>${departmentCompany[0].name}</p>
       </div>
-      <button class="dismiss__employee">Desligar</button>
+      <button data-id="${departmentEmployee.id}" class="dismiss__employee">Desligar</button>
      </li>`
     )
   })
