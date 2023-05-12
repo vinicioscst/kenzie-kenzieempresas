@@ -1,3 +1,6 @@
+import { renderUsersList } from "./dashAdmin.js";
+import { showAndCloseModalViewDepartment } from "./modal.js";
+import { renderEmployeesOutOfWork } from "./render.js";
 import { toast } from "./toast.js";
 
 const baseUrl = "http://localhost:3333";
@@ -229,6 +232,68 @@ export async function requestDeleteUser(token, userId) {
       const response = await res.json();
       
       toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function allUsersOutOfWork (token) {
+  const request = await fetch(`${baseUrl}/employees/outOfWork`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function readAllDepartments (token) {
+  const request = await fetch(`${baseUrl}/departments/readAll`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      return response
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, response.message);
+    }
+  });
+  return request
+}
+
+export async function hireEmployee (token, department, userId) {
+  const request = await fetch(`${baseUrl}/employees/hireEmployee/${userId}`, {
+    method: "PATCH",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(department)
+  }).then(async (res) => {
+    if (res.ok) {
+      const response = await res.json();
+      toast(approvedColor, response.message);
+      setTimeout(() => {
+        location.reload()
+      }, 2000)
+    } else {
+      const response = await res.json();
+      
+      toast(errorColor, 'Não é possível contratar um usuário no momento!');
     }
   });
   return request

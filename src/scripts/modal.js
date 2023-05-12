@@ -1,3 +1,8 @@
+import { hireUser } from "./dashAdmin.js"
+import { renderDepartmentEmployees, renderEmployeesOutOfWork, renderModalTexts } from "./render.js"
+import { allUsersOutOfWork, allUsersProfile, getAllCompanies, readAllDepartments } from "./requests.js"
+
+
 export function showAndCloseModalCreateDepartment () {
     const modal = document.querySelector('.create--department__modal')
     const closeModal = document.querySelector('.close--modal__create--department')
@@ -18,6 +23,44 @@ export function closeModalCreateDepartment () {
 
     modal.close()
 }
+
+export async function showAndCloseModalViewDepartment () {
+    const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
+    const modal = document.querySelector('.view--department__modal')
+    const closeModal = document.querySelector('.close--modal__view--department')
+
+    const viewDepartmentBtn = document.querySelectorAll('.view--department--card__img')
+
+    viewDepartmentBtn.forEach((button) => {
+        const departmentId = button.dataset.id
+
+        button.addEventListener('click', async () => {
+            const allCompanies = await getAllCompanies()
+            const allDepartments = await readAllDepartments(token)
+            const outOfWork = await allUsersOutOfWork(token)
+            const allEmployees = await allUsersProfile(token)
+    
+            renderEmployeesOutOfWork(outOfWork)
+            renderModalTexts(departmentId, allDepartments, allCompanies)
+            renderDepartmentEmployees(allEmployees, departmentId, allCompanies)
+
+            hireUser()
+
+            modal.showModal()
+        })
+
+        closeModal.addEventListener('click', () => {
+            modal.close()
+        })
+    })
+}
+
+export function closeModalViewDepartment () {
+    const modal = document.querySelector('.view--department__modal')
+
+    modal.close()
+}
+
 
 export function showAndCloseEditUser() {
     const modal = document.querySelector('.edit--user__modal')

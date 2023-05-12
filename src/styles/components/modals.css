@@ -14,6 +14,10 @@ dialog::backdrop {
     max-width: 31.5625rem;
 }
 
+.view--department__modal {
+    width: 53.5625rem;
+}
+
 .delete--user__modal {
     max-width: 45.8125rem;
 }
@@ -32,7 +36,7 @@ dialog::backdrop {
     padding: 4.375rem 9.375rem 3.4375rem;
 }
 
-.modal__title {
+.modal__title, .hire--modal__title {
     font: 700 2.25rem var(--font-family);
 }
 
@@ -41,7 +45,7 @@ dialog::backdrop {
     text-align: center;
 }
 
-.close--modal__create--department, .close--modal__edit--user, .close--modal__delete--user {
+.close--modal__create--department, .close--modal__edit--user, .close--modal__delete--user, .close--modal__view--department {
     position: absolute;
     top: 1.375rem;
     right: 1.375rem;
@@ -54,3 +58,57 @@ dialog::backdrop {
     flex-direction: column;
     gap: .9375rem;
 }
+
+.modal__header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+}
+
+.modal__department--info {
+    display: flex;
+    flex-direction: column;
+    gap: .625rem;
+}
+
+.modal__description {
+    font: 700 1.25rem var(--font-family);
+}
+
+.hire--employee {
+    display: flex;
+    gap: 20px;
+}
+
+.employees__list {
+    display: flex;
+    gap: 1.75rem;
+
+    overflow-x: auto;
+
+    background-color: #F8F8F8;
+    padding: 2.8125rem 2.1875rem;
+}
+
+.employees__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: var(--white-mode);
+
+    max-width: 18.75rem;
+    height: 12.5rem;
+
+    padding: 1.25rem 1.5625rem;
+}
+
+.card__header {
+    text-align: center;
+}
+
+.card__header h4 {
+    font: 700 1.25rem var(--font-family)
+}
+

@@ -71,7 +71,7 @@
     color: var(--color-brand-1);
 }
 
-.create__department button, .edit__user button {
+.create__department button, .edit__user button, .hire--employee button {
     background-color: var(--color-action-1);
     border: 0;
     
@@ -83,6 +83,10 @@
     cursor: pointer;
 }
 
+.hire--employee button {
+    padding: 1rem 2.625rem;
+}
+
 .delete__user button {
     background-color: var(--color-action-2);
     border: 0;
@@ -91,6 +95,20 @@
 
     font: var(--button);
     color: var(--white-mode);
+
+    cursor: pointer;
+}
+
+.dismiss__employee {
+    width: 255px;
+
+    border: 1px solid var(--color-action-2);
+    background-color: transparent;
+    padding: 14px 0;
+
+    text-align: center;
+    color: var(--color-action-2);
+    font: var(--button);
 
     cursor: pointer;
 }

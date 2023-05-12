@@ -1,7 +1,7 @@
-import { allUsersProfile, departmentsByCompany, getAllCompanies, requestCreateDepartment, requestDeleteUser, requestEditUser } from "./requests.js"
+import { allUsersProfile, departmentsByCompany, getAllCompanies, hireEmployee, requestCreateDepartment, requestDeleteUser, requestEditUser } from "./requests.js"
 import { renderAllUsers, renderCompaniesSelect, renderDepartmentsCards, renderSelectCreateDepartmentModal } from "./render.js"
 import { toast } from "./toast.js";
-import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndCloseEditUser, closeModalEditUser, showAndCloseDeleteUser, closeModalDeleteUser } from "./modal.js";
+import { closeModalCreateDepartment, showAndCloseModalCreateDepartment, showAndCloseEditUser, closeModalEditUser, showAndCloseDeleteUser, closeModalDeleteUser, showAndCloseModalViewDepartment, closeModalViewDepartment } from "./modal.js";
 
 const token = JSON.parse(localStorage.getItem("kenzieempresas_authToken"));
 const errorColor = "#ee6055";
@@ -38,7 +38,7 @@ async function renderSelect() {
     return renderCompanies
 }
 
-async function renderUsersList() {
+export async function renderUsersList() {
     const requestUsers = await allUsersProfile(token)
     const requestCompanies = await getAllCompanies()
     const renderUsers = renderAllUsers(requestUsers, requestCompanies)
@@ -68,6 +68,7 @@ async function renderDepartments() {
             departmentsList.classList.remove('hidden')
             noDepartmentTextSection.classList.add('hidden')
             renderDepartmentsCards(request, companyName)
+            showAndCloseModalViewDepartment()
         }
         
     })
@@ -120,7 +121,38 @@ async function createDepartment() {
 
 
 // Section pra desenvolver as funções de visualizar, editar e deletar departamentos
+export async function hireUser () {
+    const outOfWorkList = document.querySelector('.modal__out--of--work--list')
+    const hireBtn = document.querySelector('.hire--employee button')
+    const departmentTitle = document.querySelector('.hire--modal__title')
+    let userId = ''
+    let departmentId = {}
+    let count = 0
 
+    outOfWorkList.addEventListener('change', (e) => {
+        userId = e.target.options[e.target.selectedIndex].value;
+        
+        if (userId.trim() === "") {
+            count++
+        }
+    })
+
+    departmentId["department_id"] = departmentTitle.dataset.id
+    
+
+    hireBtn.addEventListener('click', (e) => {
+        e.preventDefault()
+
+        if(count !== 0) {
+            count = 0
+            toast(errorColor, 'Por favor, escolha um dos usuários')
+        } else {
+            hireEmployee(token, departmentId, userId)
+            closeModalViewDepartment()
+        }
+    })
+
+}
 
 async function editUser () {
     const formInputs = document.querySelectorAll('.edit__user input')
